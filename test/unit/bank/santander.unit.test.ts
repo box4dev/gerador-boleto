@@ -39,10 +39,7 @@ describe('Unit › Bank › Santander', () => {
   });
 
   it('codBarras deve produzir resultado esperado (fixture)', () => {
-    assert.equal(
-      santander.codBarras(makeBoleto()),
-      '03397144900000015009640415400000123456790102',
-    );
+    assert.equal(santander.codBarras(makeBoleto()), '03397144900000015009640415400000123456790102');
   });
 
   it('linhaDigitavel deve retornar string de 54 caracteres', () => {

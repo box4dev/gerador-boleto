@@ -40,10 +40,7 @@ describe('Unit › Bank › Caixa', () => {
   });
 
   it('codBarras deve produzir resultado esperado (fixture)', () => {
-    assert.equal(
-      caixa.codBarras(makeBoleto()),
-      '10494144900000321120055077222133347777777771',
-    );
+    assert.equal(caixa.codBarras(makeBoleto()), '10494144900000321120055077222133347777777771');
   });
 
   it('linhaDigitavel deve retornar string de 54 caracteres', () => {
@@ -76,7 +73,7 @@ describe('Unit › Bank › Caixa', () => {
     const b1 = makeBoleto();
     b1.codigoCedente = undefined as any;
     b1.codigo_beneficiario = '005507';
-    
+
     const barras = caixa.codBarras(b1);
     assert.equal(barras.length, 44);
   });

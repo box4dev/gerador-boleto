@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
-import { serializeBoleto } from '../../src/serializer.js';
 import { Boleto } from '../../src/boleto.js';
+import { serializeBoleto } from '../../src/serializer.js';
 
 describe('Unit › Serializer', () => {
   it('deve remover a referência "bank"', () => {
@@ -15,10 +15,10 @@ describe('Unit › Serializer', () => {
       codigoCedente: '1',
       carteira: '25',
     } as any;
-    
+
     const boleto = new Boleto(input);
     const result = serializeBoleto(boleto);
-    
+
     assert.equal(result.bank, undefined);
   });
 
@@ -75,7 +75,7 @@ describe('Unit › Serializer', () => {
     const boletoFake = {
       __proto__: {},
       prototype: {},
-      constructor: function() {},
+      constructor: function () {},
       valor: 1,
     } as any;
 

@@ -111,8 +111,8 @@ function formatarCarteira(carteira: number, banco: BankId): string {
 function gerarNossoNumero(banco: BankId): number {
   const { min, max } = DIGITOS_NOSSO_NUMERO[banco];
   const digitos = min === max ? min : randomInt(min, max);
-  const minValor = Math.pow(10, digitos - 1);
-  const maxValor = Math.pow(10, digitos) - 1;
+  const minValor = 10 ** (digitos - 1);
+  const maxValor = 10 ** digitos - 1;
   return randomInt(minValor, maxValor);
 }
 

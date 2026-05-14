@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
-import { criarBoleto, gerarBoletoAleatorio, gerarBoleto } from '../../src/generator.js';
+import { criarBoleto, gerarBoleto, gerarBoletoAleatorio } from '../../src/generator.js';
 
 describe('Unit › Generator', () => {
   describe('gerarBoleto (alias para gerarBoletoAleatorio)', () => {

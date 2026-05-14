@@ -91,13 +91,13 @@ export function validarLinhaDigitavel(linha: string): {
   // DV geral: posição 32 → reconstruir barcode e validar mod11
   const dvGeral = Number.parseInt(digits[32]!, 10);
   const barcode =
-    digits.substring(0, 3) +     // banco (3)
-    digits.substring(3, 4) +     // moeda (1)
-    digits.substring(32, 33) +   // dv geral (1)
-    digits.substring(33, 47) +   // fator + valor (14)
-    digits.substring(4, 9) +     // campo livre parte 1 (5)
-    digits.substring(10, 20) +   // campo livre parte 2 (10)
-    digits.substring(21, 31);    // campo livre parte 3 (10)
+    digits.substring(0, 3) + // banco (3)
+    digits.substring(3, 4) + // moeda (1)
+    digits.substring(32, 33) + // dv geral (1)
+    digits.substring(33, 47) + // fator + valor (14)
+    digits.substring(4, 9) + // campo livre parte 1 (5)
+    digits.substring(10, 20) + // campo livre parte 2 (10)
+    digits.substring(21, 31); // campo livre parte 3 (10)
 
   const semDvGeral = barcode.substring(0, 4) + barcode.substring(5);
   const calcDvGeral = mod11Boleto(semDvGeral);
@@ -117,7 +117,10 @@ export function validarLinhaDigitavel(linha: string): {
 }
 
 /** Verifica a consistência entre código de barras e linha digitável */
-export function validarConsistenciaBoletoCompleto(codBarras: string, linhaDigitavel: string): {
+export function validarConsistenciaBoletoCompleto(
+  codBarras: string,
+  linhaDigitavel: string,
+): {
   barrasValido: boolean;
   linhaValida: boolean;
   consistente: boolean;

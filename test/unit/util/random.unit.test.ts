@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
-import { randomInt } from '../../../src/util/random.js';
 import type { Rng } from '../../../src/util/random.js';
+import { randomInt } from '../../../src/util/random.js';
 
 describe('Unit › Util › randomInt', () => {
   // ─── Testes Positivos ─────────────────────────────────

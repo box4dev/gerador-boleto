@@ -55,7 +55,7 @@ describe('Unit › Bank › Itaú', () => {
     assert.equal(barras.length, 44);
     assert.match(barras, /^\d{44}$/);
   });
-  
+
   it('deve formatar adequadamente para agência com poucos dígitos', () => {
     const barras = itau.codBarras(makeBoleto({ agencia: '12' }));
     assert.equal(barras.length, 44);

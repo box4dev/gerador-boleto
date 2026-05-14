@@ -38,7 +38,7 @@ describe('E2E › Geração Aleatória', () => {
     it('deve selecionar um banco válido do registro', () => {
       const out = gerarBoleto();
       assert.ok(
-        BANCOS_DISPONIVEIS.includes(out.banco as typeof BANCOS_DISPONIVEIS[number]),
+        BANCOS_DISPONIVEIS.includes(out.banco as (typeof BANCOS_DISPONIVEIS)[number]),
         `Banco "${out.banco}" não está no registro de bancos disponíveis`,
       );
     });
@@ -46,7 +46,10 @@ describe('E2E › Geração Aleatória', () => {
     it('deve produzir código de barras matematicamente válido', () => {
       const out = gerarBoleto();
       const result = validarCodigoBarras(String(out.codigoBarras));
-      assert.ok(result.valido, `DV inválido: informado=${result.dvInformado}, calculado=${result.dvCalculado}`);
+      assert.ok(
+        result.valido,
+        `DV inválido: informado=${result.dvInformado}, calculado=${result.dvCalculado}`,
+      );
     });
 
     it('deve produzir linha digitável matematicamente válida', () => {

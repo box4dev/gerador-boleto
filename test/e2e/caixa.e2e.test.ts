@@ -38,17 +38,32 @@ describe('E2E › Caixa', () => {
       const out = gerarBoleto(CAIXA_COMPLETO.input);
       const result = validarCodigoBarras(String(out.codigoBarras));
 
-      assert.ok(result.valido, `DV inválido: informado=${result.dvInformado}, calculado=${result.dvCalculado}`);
+      assert.ok(
+        result.valido,
+        `DV inválido: informado=${result.dvInformado}, calculado=${result.dvCalculado}`,
+      );
     });
 
     it('deve produzir linha digitável matematicamente válida (mod10 campos + mod11 geral)', () => {
       const out = gerarBoleto(CAIXA_COMPLETO.input);
       const result = validarLinhaDigitavel(String(out.linhaDigitavel));
 
-      assert.ok(result.campo1.valido, `Campo 1 inválido: dv=${result.campo1.dv}, calc=${result.campo1.calculado}`);
-      assert.ok(result.campo2.valido, `Campo 2 inválido: dv=${result.campo2.dv}, calc=${result.campo2.calculado}`);
-      assert.ok(result.campo3.valido, `Campo 3 inválido: dv=${result.campo3.dv}, calc=${result.campo3.calculado}`);
-      assert.ok(result.dvGeral.valido, `DV geral inválido: dv=${result.dvGeral.dv}, calc=${result.dvGeral.calculado}`);
+      assert.ok(
+        result.campo1.valido,
+        `Campo 1 inválido: dv=${result.campo1.dv}, calc=${result.campo1.calculado}`,
+      );
+      assert.ok(
+        result.campo2.valido,
+        `Campo 2 inválido: dv=${result.campo2.dv}, calc=${result.campo2.calculado}`,
+      );
+      assert.ok(
+        result.campo3.valido,
+        `Campo 3 inválido: dv=${result.campo3.dv}, calc=${result.campo3.calculado}`,
+      );
+      assert.ok(
+        result.dvGeral.valido,
+        `DV geral inválido: dv=${result.dvGeral.dv}, calc=${result.dvGeral.calculado}`,
+      );
     });
 
     it('deve manter consistência entre código de barras e linha digitável', () => {

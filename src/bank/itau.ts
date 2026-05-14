@@ -8,8 +8,6 @@ import { onlyDigits, zeroPad } from '../util/string.js';
  */
 const CARTEIRAS_SIMPLES = [126, 131, 146, 150, 168];
 
-
-
 export const itau: BankModule = {
   options: { codigo: '341' },
 
@@ -28,7 +26,7 @@ export const itau: BankModule = {
 
     const nnStr = onlyDigits(String(boleto.nossoNumero));
     const nn = zeroPad(nnStr, 8);
-    
+
     let baseNnDv = '';
     if (CARTEIRAS_SIMPLES.includes(carteiraNumero)) {
       baseNnDv = carteira + nn;
@@ -42,9 +40,9 @@ export const itau: BankModule = {
     // Campo livre para Itaú (25 dígitos)
     // Estrutura: CARTEIRA(3) + NN(8) + DV(1) + AGÊNCIA(4) + CONTA(5) + DV(1) + ZEROS(3)
     // Total: 3 + 8 + 1 + 4 + 5 + 1 + 3 = 25 dígitos
-    const campoLivre = carteira + nn + nnDv + agencia + conta + dacAgenciaConta + '000';
+    const campoLivre = `${carteira}${nn}${nnDv}${agencia}${conta}${dacAgenciaConta}000`;
 
-    const barra = codigoBanco + moeda + fator + valorDocumento + campoLivre;
+    const barra = `${codigoBanco}${moeda}${fator}${valorDocumento}${campoLivre}`;
 
     const dv = dvBarraModulo11(barra);
     return barra.substring(0, 4) + String(dv) + barra.substring(4);

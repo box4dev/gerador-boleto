@@ -1,7 +1,8 @@
 {
   "name": "@box4dev/gerador-boleto",
-  "version": "1.0.0",
-  "description": "Geração boleto (linha digitável e código de barras) para Node.js",
+  "version": "1.0.1",
+  "license": "MIT",
+  "description": "Gerador de Boleto no padrão FEBRABAN: Linha Digitável e Código de Barras",
   "keywords": [
     "boleto",
     "febraban",
@@ -13,7 +14,6 @@
     "caixa",
     "santander"
   ],
-  "license": "MIT",
   "author": "Box4Dev",
   "repository": {
     "type": "git",
@@ -38,8 +38,10 @@
     }
   },
   "sideEffects": false,
+  "readme": "README.md",
   "files": [
     "dist",
+    "README.md",
     "LICENSE"
   ],
   "engines": {

@@ -1,0 +1,77 @@
+{
+  "name": "@box4dev/gerador-boleto",
+  "version": "1.0.0",
+  "description": "Geração boleto (linha digitável e código de barras) para Node.js",
+  "keywords": [
+    "boleto",
+    "febraban",
+    "linha-digitavel",
+    "codigo-barras",
+    "brasil",
+    "cobrança",
+    "bradesco",
+    "caixa",
+    "santander"
+  ],
+  "license": "MIT",
+  "author": "Box4Dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/box4dev/gerador-boleto.git"
+  },
+  "bugs": {
+    "url": "https://github.com/box4dev/gerador-boleto/issues"
+  },
+  "homepage": "https://github.com/box4dev/gerador-boleto#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "prepublishOnly": "npm run build && npm run test",
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "biome:format": "biome format --write",
+    "biome:lint": "biome lint --write",
+    "biome:check": "biome check --write",
+    "biome:ci": "biome ci",
+    "test": "node --import tsx --test --experimental-test-coverage test/**/*.test.ts",
+    "test:unit": "node --import tsx --test test/unit/**/*.test.ts",
+    "test:e2e": "node --import tsx --test test/e2e/**/*.test.ts",
+    "test:watch": "node --import tsx --test --watch test/**/*.test.ts",
+    "sample:vazio": "node example/test-vazio.mjs",
+    "sample:bancos": "node example/test-bancos.mjs",
+    "sample:bradesco": "node example/test-bradesco.mjs",
+    "sample:caixa": "node example/test-caixa.mjs",
+    "sample:itau": "node example/test-itau.mjs",
+    "sample:santander": "node example/test-santander.mjs",
+    "sample:stdin": "node example/stdin-json.mjs < example/payload.json"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.15",
+    "@changesets/cli": "^2.31.0",
+    "tsup": "^8.5.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.7.3",
+    "@types/node": "^22.13.1"
+  },
+  "packageManager": "pnpm@11.1.1"
+}

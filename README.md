@@ -5,9 +5,10 @@
 </p>
 
 <p align="center">
-  <b>Biblioteca <b>Node.js</b> para gerar dados de cobrança bancária no padrão FEBRABAN: <b>linha digitável</b> e <b>código de barras</b> (44 dígitos). Sem HTML, PDF ou renderização gráfica — apenas dados prontos para JSON.</b>
+  <b>Gerador de Boleto no padrão FEBRABAN: Linha Digitável e Código de Barras. Sem HTML, PDF ou renderização gráfica — apenas dados prontos para JSON.</b>
 </p>
-<p align="center">Ideal para geração de massa de testes automatizados.</p>
+
+<p align="center">Ideal para geração de massa para testes automatizados.</p>
 
 <p align="center">
   <img src="https://img.shields.io/npm/v/@box4dev/gerador-boleto?style=flat-square" alt="npm version" />
@@ -65,7 +66,15 @@ Caso não sejam informados, o banco e os valores de entrada serão escolhidos al
 ### Sem imformar parâmetros
 
 ```javascript
-console.log(gerarBoleto());
+const dados = gerarBoleto();
+
+console.log(dados.codigoBarras);
+// '03396145000000996689025708991834007174230101'
+
+console.log(dados.linhaDigitavel);
+// '03399.02579 08991.834006 71742.301014 6 14500000099668'
+
+console.log(dados);
 /* 
 {
   codigoBarras: '03396145000000996689025708991834007174230101',
@@ -101,14 +110,16 @@ console.log( gerarBoleto({ banco: 'santander' }) );
 ### Informando parâmetros úteis para a lógica de boletos
 
 ```javascript
-const dados = gerarBoleto({
-  banco: 'bradesco',
-  valorDocumento: 15990,
-  nossoNumero: '12345678901',
-  agencia: '1229',
-  codigoCedente: '0000469',
-  carteira: '9',
-})
+console.log( 
+  gerarBoleto({
+    banco: 'bradesco',
+    valorDocumento: 15990,
+    nossoNumero: '12345678901',
+    agencia: '1229',
+    codigoCedente: '0000469',
+    carteira: '9',
+  })
+);
 ```
 
 ### Informando parâmetros opcionais (qualquer coisa informada será apresentada após a execução)
@@ -125,11 +136,12 @@ console.log(
     codigoCedente: '654321',
     carteira: '14',
     localPagamento: 'Local Teste',
-    numeroDocumento: 'CX-001',
+    numeroDocumento: '999888',
     cedente: 'Empresa Teste LTDA',
     cedenteCnpj: '54811186000198',
     instrucoesPagamento: 'Instrução Teste',
     identificadorEmissao: '4'
+    // qualquer outra informação que desejar adicionar ao objeto será apresentada após a execução
   })
 );
 ```

@@ -6,10 +6,9 @@ A segurança é uma prioridade muito alta para o projeto **Gerador de Boleto** (
 
 Atualmente as seguintes versões estão ativamente recebendo atualizações de segurança:
 
-| Versão | Suportada          |
+| Versão  | Suportada          |
 | ------- | ------------------ |
 | 1.x.x   | :white_check_mark: |
-| < 1.0.0 | :x:                |
 
 ## Como Reportar uma Vulnerabilidade
 

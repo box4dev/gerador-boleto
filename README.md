@@ -5,7 +5,8 @@
 </p>
 
 <p align="center">
-  <b>Gerador de Boleto no padrão FEBRABAN: Linha Digitável e Código de Barras. Sem HTML, PDF ou renderização gráfica — apenas dados prontos para JSON.</b>
+  <b>Gerador de Boleto no padrão FEBRABAN: Linha Digitável e Código de Barras.<br>
+  Sem HTML, PDF ou renderização gráfica — apenas dados prontos para JSON.</b>
 </p>
 
 <p align="center">Ideal para geração de massa para testes automatizados.</p>
